@@ -19,18 +19,21 @@
   <meta name="author" content="666xz666">
   <meta name="keywords" content="">
   
-    <meta name="description" content="This is a post for test">
+    <meta name="description" content="This is a post for test本文是对新博客编辑器功能的测试。 配置指南 1. Mermaid  graph TD     A[Alice] --&gt; B[Bob]     A --&gt; C[Carol]     B --&gt; D[Dave]     C --&gt; D     C --&gt; E[Eve]     D --&gt; F[Frank]     E -">
 <meta property="og:type" content="article">
 <meta property="og:title" content="test.md">
 <meta property="og:url" content="http://666xz666.github.io/2025/01/17/test-md/index.html">
 <meta property="og:site_name" content="666xz666 的博客">
-<meta property="og:description" content="This is a post for test">
+<meta property="og:description" content="This is a post for test本文是对新博客编辑器功能的测试。 配置指南 1. Mermaid  graph TD     A[Alice] --&gt; B[Bob]     A --&gt; C[Carol]     B --&gt; D[Dave]     C --&gt; D     C --&gt; E[Eve]     D --&gt; F[Frank]     E -">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://666xz666.github.io/img/loading.gif">
 <meta property="article:published_time" content="2025-01-17T02:11:20.000Z">
-<meta property="article:modified_time" content="2025-01-17T02:16:27.694Z">
+<meta property="article:modified_time" content="2025-01-17T13:42:03.886Z">
 <meta property="article:author" content="666xz666">
 <meta property="article:tag" content="test">
+<meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://666xz666.github.io/img/loading.gif">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -72,7 +75,6 @@
 
   
 <link rel="stylesheet" href="/css/scrollAnimation.css">
-<link rel="stylesheet" href="/mk.css">
 
 
 
@@ -230,7 +232,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1 字
+          353 字
         
       </span>
     
@@ -241,7 +243,7 @@
         
         
         
-          1 分钟
+          3 分钟
         
       </span>
     
@@ -292,7 +294,123 @@
             
               <div class="markdown-body">
                 
-                <h1 id="This-is-a-post-for-test"><a href="#This-is-a-post-for-test" class="headerlink" title="This is a post for test"></a>This is a post for test</h1>
+                <h1 id="This-is-a-post-for-test"><a href="#This-is-a-post-for-test" class="headerlink" title="This is a post for test"></a>This is a post for test</h1><p>本文是对新博客编辑器功能的测试。</p>
+<p><a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/guide/">配置指南</a></p>
+<h2 id="1-Mermaid"><a href="#1-Mermaid" class="headerlink" title="1. Mermaid"></a>1. Mermaid</h2><p><img src="https://pic--oss.oss-cn-beijing.aliyuncs.com/img/image-20250117203928093.png" srcset="/img/loading.gif" lazyload alt="image-20250117203928093"></p>
+<p><img src="https://pic--oss.oss-cn-beijing.aliyuncs.com/img/image-20250117204058222.png" srcset="/img/loading.gif" lazyload alt="image-20250117204058222"></p>
+<pre><code class=" mermaid">graph TD
+    A[Alice] --&gt; B[Bob]
+    A --&gt; C[Carol]
+    B --&gt; D[Dave]
+    C --&gt; D
+    C --&gt; E[Eve]
+    D --&gt; F[Frank]
+    E --&gt; F
+    E --&gt; G[Gina]
+    F --&gt; G
+</code></pre>
+
+<pre><code class=" mermaid">classDiagram
+  class User &#123;
+    -String email
+    -String phone
+    -String password
+    -String nickname
+    -String avatar
+    -List&lt;DownloadRecord&gt; downloadRecords
+    -List&lt;ExerciseRecord&gt; exerciseRecords
+    +login()
+    +register()
+    +uploadFile()
+    +downloadFile()
+    +viewDownloadRecords()
+    +viewExerciseRecords()
+    +reviewErrorQuestions()
+  &#125;
+  class DownloadRecord &#123;
+    -String fileId
+    -String fileName
+    -Date downloadTime
+  &#125;
+  class ExerciseRecord &#123;
+    -String questionId
+    -String questionContent
+    -String userAnswer
+    -Boolean isCorrect
+    -Date exerciseTime
+  &#125;
+  class KnowledgeFile &#123;
+    -String fileId
+    -String fileName
+    -String fileType
+    -String fileContent
+    -Date uploadTime
+    -User uploader
+    +parseFile()
+  &#125;
+  class QuestionBank &#123;
+    -String bankId
+    -String bankName
+    -List&lt;Question&gt; questions
+    +addQuestion()
+    +removeQuestion()
+    +searchQuestion()
+  &#125;
+  class Question &#123;
+    -String questionId
+    -String questionContent
+    -String answer
+    -String questionType
+    -Integer difficulty
+    +checkAnswer()
+  &#125;
+  class Admin &#123;
+    -String adminId
+    -String adminName
+    -String password
+    +login()
+    +uploadQuestionBank()
+    +crawlQuestionBank()
+    +importQuestionBank()
+  &#125;
+  class Recommendation &#123;
+    -User user
+    +recommendResources()
+    +generateStudyPlan()
+  &#125;
+  class Community &#123;
+    -List&lt;User&gt; users
+    +discussQuestion()
+    +shareExperience()
+    +sendPrivateMessage()
+    +likePost()
+    +commentPost()
+  &#125;
+  class DataAnalysis &#123;
+    -User user
+    +analyzeExerciseData()
+    +generateLearningReport()
+    +exportReport()
+  &#125;
+  User &quot;1&quot; -- &quot;*&quot; DownloadRecord
+  User &quot;1&quot; -- &quot;*&quot; ExerciseRecord
+  KnowledgeFile &quot;1&quot; -- &quot;1&quot; User
+  QuestionBank &quot;1&quot; -- &quot;*&quot; Question
+  Recommendation &quot;1&quot; -- &quot;1&quot; User
+  Community &quot;1&quot; -- &quot;*&quot; User
+  DataAnalysis &quot;1&quot; -- &quot;1&quot; User
+
+</code></pre>
+
+
+
+<h2 id="2-公式"><a href="#2-公式" class="headerlink" title="2. 公式"></a>2. 公式</h2><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs latex">单行使用一个<span class="hljs-built_in">$</span>符号，换行使用两个<span class="hljs-built_in">$</span>符号<br>计算公式1：<span class="hljs-built_in">$</span><span class="hljs-keyword">\int</span><span class="hljs-built_in">_</span>&#123;a&#125;<span class="hljs-built_in">^</span>&#123;b&#125; x<span class="hljs-built_in">^</span>2 dx<span class="hljs-built_in">$</span>&lt;br&gt;计算公式2：<span class="hljs-built_in">$</span><span class="hljs-keyword">\int</span><span class="hljs-built_in">_</span>&#123;a&#125;<span class="hljs-built_in">^</span>&#123;b&#125; x<span class="hljs-built_in">^</span>3 dx<span class="hljs-built_in">$</span>&lt;br&gt;<span class="hljs-built_in">$</span><span class="hljs-built_in">$</span><span class="hljs-keyword">\int</span><span class="hljs-built_in">_</span>&#123;a&#125;<span class="hljs-built_in">^</span>&#123;b&#125; x<span class="hljs-built_in">^</span>2 dx<span class="hljs-built_in">$</span><span class="hljs-built_in">$</span><br><span class="hljs-built_in">$</span><span class="hljs-built_in">$</span><br>Q = XW<span class="hljs-built_in">^</span>Q, <span class="hljs-keyword">\quad</span> K = XW<span class="hljs-built_in">^</span>K, <span class="hljs-keyword">\quad</span> V = XW<span class="hljs-built_in">^</span>V<br><span class="hljs-built_in">$</span><span class="hljs-built_in">$</span><br><br></code></pre></td></tr></table></figure>
+
+<p>单行使用一个$符号，换行使用两个$符号<br>计算公式1：$\int_{a}^{b} x^2 dx$<br>计算公式2：$\int_{a}^{b} x^3 dx$<br>$$\int_{a}^{b} x^2 dx$$<br>$$<br>Q &#x3D; XW^Q, \quad K &#x3D; XW^K, \quad V &#x3D; XW^V<br>$$</p>
+<h2 id="3-代码"><a href="#3-代码" class="headerlink" title="3. 代码"></a>3. 代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    cout&lt;&lt;<span class="hljs-string">&quot;hello world&quot;</span>&lt;&lt;endl;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>…</p>
+
                 
               </div>
             
@@ -300,11 +418,34 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="category-chain-item">博客搭建</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
         <a href="/tags/test/" class="print-no-link">#test</a>
+      
+        <a href="/tags/blog/" class="print-no-link">#blog</a>
       
     </div>
   
@@ -361,15 +502,15 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/2025/01/17/hello-world/" title="Hello World">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Hello World</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
-                    
-                      <a href="/2025/01/17/hello-world/" title="Hello World">
-                        <span class="hidden-mobile">Hello World</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
                     
                   </article>
                 </div>
