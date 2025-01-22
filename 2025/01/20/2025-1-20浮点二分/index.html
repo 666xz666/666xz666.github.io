@@ -19,16 +19,16 @@
   <meta name="author" content="666xz666">
   <meta name="keywords" content="">
   
-    <meta name="description" content="二分查找模板12345678910111213141516171819202122232425bool check(int x)&#123;    &#x2F;&#x2F;判断函数    return true&#125;&#x2F;&#x2F;[l,mid],[mid+1,r]int bsearch_1(int l,int r)&#123;    while (l&lt;r)    &#123;        int mid&#x3D;l+r&amp;">
+    <meta name="description" content="浮点二分浮点二分比整数二分简单得多，因为无需判断边界条件，只要设置精度即可。  设置精度标准：一般题目要求保留x位的话，精度加上2没有大问题。  模板1234567891011const double eps &#x3D; 1e-9;double binary_search(double left, double right) &#123;    int l&#x3D;left, r&#x3D;right;    while">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2025-1-19二分">
-<meta property="og:url" content="http://666xz666.github.io/2025/01/19/2025-1-19%E4%BA%8C%E5%88%86/index.html">
+<meta property="og:title" content="2025-1-20浮点二分">
+<meta property="og:url" content="http://666xz666.github.io/2025/01/20/2025-1-20%E6%B5%AE%E7%82%B9%E4%BA%8C%E5%88%86/index.html">
 <meta property="og:site_name" content="666xz666 的博客">
-<meta property="og:description" content="二分查找模板12345678910111213141516171819202122232425bool check(int x)&#123;    &#x2F;&#x2F;判断函数    return true&#125;&#x2F;&#x2F;[l,mid],[mid+1,r]int bsearch_1(int l,int r)&#123;    while (l&lt;r)    &#123;        int mid&#x3D;l+r&amp;">
+<meta property="og:description" content="浮点二分浮点二分比整数二分简单得多，因为无需判断边界条件，只要设置精度即可。  设置精度标准：一般题目要求保留x位的话，精度加上2没有大问题。  模板1234567891011const double eps &#x3D; 1e-9;double binary_search(double left, double right) &#123;    int l&#x3D;left, r&#x3D;right;    while">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pic--oss.oss-cn-beijing.aliyuncs.com/img/7100.jpg_wh860.jpg">
-<meta property="article:published_time" content="2025-01-19T06:09:47.000Z">
-<meta property="article:modified_time" content="2025-01-19T08:08:24.696Z">
+<meta property="article:published_time" content="2025-01-20T02:26:02.000Z">
+<meta property="article:modified_time" content="2025-01-20T02:32:08.083Z">
 <meta property="article:author" content="666xz666">
 <meta property="article:tag" content="cpp">
 <meta property="article:tag" content="algorithm">
@@ -41,7 +41,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>2025-1-19二分 - 666xz666 的博客</title>
+  <title>2025-1-20浮点二分 - 666xz666 的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -211,7 +211,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="2025-1-19二分"></span>
+            <span id="subtitle" data-typed-text="2025-1-20浮点二分"></span>
           
         </div>
 
@@ -222,8 +222,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-01-19 14:09" pubdate>
-          2025年1月19日 下午
+        <time datetime="2025-01-20 10:26" pubdate>
+          2025年1月20日 上午
         </time>
       </span>
     
@@ -234,7 +234,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          409 字
+          185 字
         
       </span>
     
@@ -245,7 +245,7 @@
         
         
         
-          4 分钟
+          2 分钟
         
       </span>
     
@@ -291,18 +291,20 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">2025-1-19二分</h1>
+            <h1 id="seo-header">2025-1-20浮点二分</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h1><h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">check</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span></span>&#123;<br>    <span class="hljs-comment">//判断函数</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span><br>&#125;<br><br><span class="hljs-comment">//[l,mid],[mid+1,r]</span><br><span class="hljs-type">int</span> <span class="hljs-built_in">bsearch_1</span>(<span class="hljs-type">int</span> l,<span class="hljs-type">int</span> r)&#123;<br>    <span class="hljs-keyword">while</span> (l&lt;r)<br>    &#123;<br>        <span class="hljs-type">int</span> mid=l+r&gt;&gt;<span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">if</span>(<span class="hljs-built_in">check</span>(mid)) r=mid;<br>        <span class="hljs-keyword">else</span> l=mid<span class="hljs-number">+1</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> l;   <br>&#125;<br><br><span class="hljs-comment">//[l,mid-1],[mid,r]</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">bsearch_2</span><span class="hljs-params">(<span class="hljs-type">int</span> l,<span class="hljs-type">int</span> r)</span></span>&#123;<br>    <span class="hljs-keyword">while</span>(l&lt;r)&#123;<br>        <span class="hljs-type">int</span> mid=l+r<span class="hljs-number">+1</span>&gt;&gt;<span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">if</span>(<span class="hljs-built_in">check</span>(mid)) l=mid;<br>        <span class="hljs-keyword">else</span> r=mid<span class="hljs-number">-1</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> l;<br>&#125;<br></code></pre></td></tr></table></figure>
+                <h1 id="浮点二分"><a href="#浮点二分" class="headerlink" title="浮点二分"></a>浮点二分</h1><p>浮点二分比整数二分简单得多，因为无需判断边界条件，只要设置精度即可。</p>
+<ul>
+<li>设置精度标准：一般题目要求保留x位的话，精度加上2没有大问题。</li>
+</ul>
+<h1 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-type">const</span> <span class="hljs-type">double</span> eps = <span class="hljs-number">1e-9</span>;<br><br><span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">binary_search</span><span class="hljs-params">(<span class="hljs-type">double</span> left, <span class="hljs-type">double</span> right)</span> </span>&#123;<br>    <span class="hljs-type">int</span> l=left, r=right;<br>    <span class="hljs-keyword">while</span> (r-l &gt; eps) &#123;<br>        <span class="hljs-type">double</span> mid = (l+r)/<span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span>(<span class="hljs-built_in">check</span>(mid)) r = mid;<br>        <span class="hljs-keyword">else</span> l = mid;<br>    &#125;<br>    <span class="hljs-keyword">return</span> l;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43738331/article/details/109460567">数的范围</a></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">int</span> n,q,x;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N=<span class="hljs-number">1e5</span><span class="hljs-number">+5</span>;<br><span class="hljs-type">int</span> a[N];<br><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">check_1</span><span class="hljs-params">(<span class="hljs-type">int</span> mid)</span></span>&#123;<br>    <span class="hljs-keyword">return</span> a[mid]&gt;=x;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">check_2</span><span class="hljs-params">(<span class="hljs-type">int</span> mid)</span></span>&#123;<br>    <span class="hljs-keyword">return</span> a[mid]&lt;=x;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">work</span><span class="hljs-params">()</span></span>&#123;<br>    cin&gt;&gt;n&gt;&gt;q;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++) cin&gt;&gt;a[i];<br>    <span class="hljs-keyword">while</span>(q--)&#123;<br>        cin&gt;&gt;x;<br>        <span class="hljs-type">int</span> l=<span class="hljs-number">0</span>,r=n<span class="hljs-number">-1</span>;<br>        <span class="hljs-keyword">while</span>(l&lt;r)&#123;<br>            <span class="hljs-type">int</span> mid=l+r&gt;&gt;<span class="hljs-number">1</span>;<br>            <span class="hljs-keyword">if</span>(<span class="hljs-built_in">check_1</span>(mid)) r=mid;<br>            <span class="hljs-keyword">else</span> l=mid<span class="hljs-number">+1</span>;<br>        &#125;<br>        <span class="hljs-type">int</span> sta=l;<span class="hljs-comment">//第一个大于等于x的数</span><br><br>        l=<span class="hljs-number">0</span>,r=n<span class="hljs-number">-1</span>;<br>        <span class="hljs-keyword">while</span>(l&lt;r)&#123;<br>            <span class="hljs-type">int</span> mid=l+r<span class="hljs-number">+1</span>&gt;&gt;<span class="hljs-number">1</span>;<br>            <span class="hljs-keyword">if</span>(<span class="hljs-built_in">check_2</span>(mid)) l=mid;<br>            <span class="hljs-keyword">else</span> r=mid<span class="hljs-number">-1</span>;<br>        &#125;<br>        <span class="hljs-type">int</span> end=l;<span class="hljs-comment">//第一个小于等于x的数</span><br><br>        <span class="hljs-keyword">if</span>(a[sta]!=x||a[end]!=x) cout&lt;&lt;<span class="hljs-number">-1</span>&lt;&lt;<span class="hljs-string">&quot; &quot;</span>&lt;&lt;<span class="hljs-number">-1</span>&lt;&lt;endl;<br>        <span class="hljs-keyword">else</span> cout&lt;&lt;sta&lt;&lt;<span class="hljs-string">&quot; &quot;</span>&lt;&lt;end&lt;&lt;endl;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-built_in">work</span>();<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>#例题<br>求立方根</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">long</span> <span class="hljs-type">long</span> x;<br><span class="hljs-type">const</span> <span class="hljs-type">double</span> P=<span class="hljs-number">1e-2</span>;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">work</span><span class="hljs-params">()</span></span>&#123;<br>    cin&gt;&gt;x;<br>    <span class="hljs-type">double</span> l=<span class="hljs-number">0</span>,r=<span class="hljs-number">1e5</span><span class="hljs-number">+5</span>;<br>    <span class="hljs-keyword">while</span>(r-l&gt;P)&#123;<br>        <span class="hljs-type">double</span> mid=(r+l)/<span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span>(mid*mid*mid&lt;=x) l=mid;<br>        <span class="hljs-keyword">else</span> r=mid;<br>    &#125;<br>    <br>    <span class="hljs-type">int</span> ans=r;<br>    cout&lt;&lt;<span class="hljs-string">&quot;l: &quot;</span>&lt;&lt;l&lt;&lt;endl;<br>    cout&lt;&lt;<span class="hljs-string">&quot;r: &quot;</span>&lt;&lt;r&lt;&lt;endl;<br>    cout&lt;&lt;ans&lt;&lt;endl;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-built_in">work</span>();<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P8647">P8647  蓝桥杯 2017 省 AB 分巧克力 - 洛谷 | 计算机科学教育新生态</a></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">int</span> n,k;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N=<span class="hljs-number">1e5</span><span class="hljs-number">+5</span>;<br><span class="hljs-type">int</span> a[N],b[N];<br><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">check</span><span class="hljs-params">(<span class="hljs-type">int</span> mid)</span></span>&#123;<br>    <span class="hljs-type">int</span> sum=<span class="hljs-number">0</span>;<br>    <span class="hljs-comment">//这里必须切整块的正方形，边角料不要，有点逆天</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++) sum+=(a[i]/mid)*(b[i]/mid);<br>    <span class="hljs-keyword">return</span> sum&gt;=k;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">work</span><span class="hljs-params">()</span></span>&#123;<br>    cin&gt;&gt;n&gt;&gt;k;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;<br>        cin&gt;&gt;a[i]&gt;&gt;b[i];<br>    &#125;<br><br>    <span class="hljs-comment">//模板</span><br>    <span class="hljs-type">int</span> l=<span class="hljs-number">1</span>,r=N;<br>    <span class="hljs-keyword">while</span> (l&lt;r)<br>    &#123;<br>        <span class="hljs-type">int</span> mid=l+r<span class="hljs-number">+1</span>&gt;&gt;<span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">if</span>(<span class="hljs-built_in">check</span>(mid)) l=mid;<span class="hljs-comment">//[mid,r]</span><br>        <span class="hljs-keyword">else</span> r=mid<span class="hljs-number">-1</span>;<br>    &#125;<br>    <br>    cout&lt;&lt;l&lt;&lt;endl;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-built_in">work</span>();<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 
                 
@@ -362,8 +364,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>2025-1-19二分</div>
-      <div>http://666xz666.github.io/2025/01/19/2025-1-19二分/</div>
+      <div>2025-1-20浮点二分</div>
+      <div>http://666xz666.github.io/2025/01/20/2025-1-20浮点二分/</div>
     </div>
     <div class="license-meta">
       
@@ -375,7 +377,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年1月19日</div>
+          <div>2025年1月20日</div>
         </div>
       
       
@@ -407,18 +409,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/01/20/2025-1-20%E6%B5%AE%E7%82%B9%E4%BA%8C%E5%88%86/" title="2025-1-20浮点二分">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">2025-1-20浮点二分</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/01/18/2025-1-18%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" title="2025-1-18归并排序">
-                        <span class="hidden-mobile">2025-1-18归并排序</span>
+                      <a href="/2025/01/19/2025-1-19%E4%BA%8C%E5%88%86/" title="2025-1-19二分">
+                        <span class="hidden-mobile">2025-1-19二分</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
