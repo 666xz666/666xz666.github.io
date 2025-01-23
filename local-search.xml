@@ -4,6 +4,72 @@
   
   
   <entry>
+    <title>2025-01-23前缀和</title>
+    <link href="/2025/01/23/%E5%89%8D%E7%BC%80%E5%92%8C/"/>
+    <url>/2025/01/23/%E5%89%8D%E7%BC%80%E5%92%8C/</url>
+    
+    <content type="html"><![CDATA[<h1 id="前缀和"><a href="#前缀和" class="headerlink" title="前缀和"></a>前缀和</h1><h2 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h2><h3 id="一维前缀和"><a href="#一维前缀和" class="headerlink" title="一维前缀和"></a>一维前缀和</h3><p><img src="https://pic--oss.oss-cn-beijing.aliyuncs.com/img/image-20250123181901668.png" alt="image-20250123181901668"></p><h3 id="二维前缀和"><a href="#二维前缀和" class="headerlink" title="二维前缀和"></a>二维前缀和</h3><p><img src="https://pic--oss.oss-cn-beijing.aliyuncs.com/img/image-20250123183813888.png" alt="image-20250123183813888"></p><h2 id="模板题"><a href="#模板题" class="headerlink" title="模板题"></a>模板题</h2><p><a href="https://blog.csdn.net/qq_44426403/article/details/134255195">https://blog.csdn.net/qq_44426403/article/details/134255195</a></p><h3 id="一维前缀和-1"><a href="#一维前缀和-1" class="headerlink" title="一维前缀和"></a>一维前缀和</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">int</span> n,m;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N=<span class="hljs-number">1e5</span><span class="hljs-number">+5</span>;<br><span class="hljs-type">int</span> sum[N];<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">work</span><span class="hljs-params">()</span></span>&#123;<br>    cin&gt;&gt;n&gt;&gt;m;<br>    <span class="hljs-type">int</span> pre=<span class="hljs-number">0</span>,a;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>        cin&gt;&gt;a;<br>        sum[i]=a+pre;<br>        pre=sum[i];<br>    &#125;<br><br>    <span class="hljs-keyword">while</span>(m--)&#123;<br>        <span class="hljs-type">int</span> l,r;<br>        cin&gt;&gt;l&gt;&gt;r;<br>        cout&lt;&lt;sum[r]-sum[l<span class="hljs-number">-1</span>]&lt;&lt;endl;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-built_in">work</span>();<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure><h3 id="二维前缀和-1"><a href="#二维前缀和-1" class="headerlink" title="二维前缀和"></a>二维前缀和</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">int</span> n,m,q;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N=<span class="hljs-number">1005</span>;<br><span class="hljs-type">int</span> sum[N][N];<br><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">work</span><span class="hljs-params">()</span></span>&#123;<br>    cin&gt;&gt;n&gt;&gt;m&gt;&gt;q;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=<span class="hljs-number">1</span>;j&lt;=m;j++)&#123;<br>            <span class="hljs-type">int</span> a;<br>            cin&gt;&gt;a;<br>            sum[i][j]=a+sum[i][j<span class="hljs-number">-1</span>]+sum[i<span class="hljs-number">-1</span>][j]-sum[i<span class="hljs-number">-1</span>][j<span class="hljs-number">-1</span>];<br>        &#125;<br>            <br>    <span class="hljs-keyword">while</span>(q--)&#123;<br>        <span class="hljs-type">int</span> x1,y1,x2,y2;<span class="hljs-comment">//左上和右下</span><br>        cin&gt;&gt;x1&gt;&gt;y1&gt;&gt;x2&gt;&gt;y2;<br><br>        cout&lt;&lt;sum[x2][y2]-sum[x1<span class="hljs-number">-1</span>][y2]-sum[x2][y1<span class="hljs-number">-1</span>]+sum[x1<span class="hljs-number">-1</span>][y1<span class="hljs-number">-1</span>]&lt;&lt;endl;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-built_in">work</span>();<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>寒假练题计划</category>
+      
+      <category>基础算法</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>cpp</tag>
+      
+      <tag>algorithm</tag>
+      
+      <tag>ACwing</tag>
+      
+      <tag>prefix sum</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>csp36-5 梦魔(30分)</title>
+    <link href="/2025/01/23/%E6%A2%A6%E9%AD%94/"/>
+    <url>/2025/01/23/%E6%A2%A6%E9%AD%94/</url>
+    
+    <content type="html"><![CDATA[<h1 id="csp36-5-梦魔"><a href="#csp36-5-梦魔" class="headerlink" title="csp36-5 梦魔"></a>csp36-5 梦魔</h1><h2 id="题干"><a href="#题干" class="headerlink" title="题干"></a>题干</h2><p><a href="https://sim.csp.thusaac.com/contest/36/problem/4">https://sim.csp.thusaac.com/contest/36/problem/4</a></p><h2 id="30分作答"><a href="#30分作答" class="headerlink" title="30分作答"></a>30分作答</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">int</span> n,q;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N=<span class="hljs-number">2e6</span><span class="hljs-number">+5</span>;<br><span class="hljs-type">int</span> a[N],b[N];<br><br><span class="hljs-type">int</span> a_new[N],b_new[N];<br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">check</span><span class="hljs-params">(<span class="hljs-type">long</span> <span class="hljs-type">long</span> bb,<span class="hljs-type">int</span> i)</span></span>&#123;<span class="hljs-comment">//n个int相加会溢出，所以用long long</span><br>    <span class="hljs-type">int</span> l=i,r=i<span class="hljs-number">+1</span>;<br>    <span class="hljs-keyword">while</span>(l&gt;=<span class="hljs-number">0</span>&amp;&amp;r&lt;n)&#123;<br>        <span class="hljs-keyword">if</span>(a_new[l]&lt;=a_new[r])&#123;<br>            <span class="hljs-keyword">if</span>(bb&lt;a_new[l]) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>            <span class="hljs-keyword">else</span>&#123;<br>                bb+=b_new[l];<br>                l--;<br>            &#125;<br>        &#125;<span class="hljs-keyword">else</span>&#123;<br>            <span class="hljs-keyword">if</span>(bb&lt;a_new[r]) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>            <span class="hljs-keyword">else</span>&#123;<br>                bb+=b_new[r];<br>                r++;<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">while</span>(l&gt;=<span class="hljs-number">0</span>)&#123;<br>        <span class="hljs-keyword">if</span>(bb&lt;a_new[l]) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>        <span class="hljs-keyword">else</span>&#123;<br>            bb+=b_new[l];<br>            l--;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">while</span>(r&lt;n)&#123;<br>        <span class="hljs-keyword">if</span>(bb&lt;a_new[r]) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>        <span class="hljs-keyword">else</span>&#123;<br>            bb+=b_new[r];<br>            r++;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">work</span><span class="hljs-params">()</span></span>&#123;<br>    cin&gt;&gt;n;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++) cin&gt;&gt;a[i];<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++) cin&gt;&gt;b[i];<br><br>    cin&gt;&gt;q;<br>    <span class="hljs-keyword">while</span>(q--)&#123;<br>        <span class="hljs-type">int</span> k;<br>        cin&gt;&gt;k;<br><br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;<br>            a_new[i]=a[i];<br>            b_new[i]=b[i];<br>        &#125; <br><br>        <span class="hljs-keyword">while</span>(k--)&#123;<span class="hljs-comment">//变动</span><br>            <span class="hljs-type">int</span> j,aa,bb;<br>            cin&gt;&gt;j&gt;&gt;aa&gt;&gt;bb;<br>            a_new[j<span class="hljs-number">-1</span>]=aa;<br>            b_new[j<span class="hljs-number">-1</span>]=bb;<br>        &#125;<br><br>        <span class="hljs-comment">//设计让a的最大值作为二分的右边界</span><br>        <span class="hljs-type">int</span> amax=<span class="hljs-number">-1</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++) amax=<span class="hljs-built_in">max</span>(amax,a_new[i]);<br><br>        <span class="hljs-type">int</span> ans=<span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n<span class="hljs-number">-1</span>;i++)&#123;<br>            <span class="hljs-type">int</span> l=<span class="hljs-number">0</span>,r=amax;<br>            <span class="hljs-keyword">while</span>(l&lt;r)&#123;<br>                <span class="hljs-type">int</span> mid=l+r&gt;&gt;<span class="hljs-number">1</span>;<br>                <span class="hljs-keyword">if</span>(<span class="hljs-built_in">check</span>(mid,i)) r=mid;<span class="hljs-comment">//[l,mid]</span><br>                <span class="hljs-keyword">else</span> l=mid<span class="hljs-number">+1</span>;<br>            &#125;<br>            <span class="hljs-comment">// cout&lt;&lt;&quot;p:&quot;&lt;&lt;l&lt;&lt;endl;</span><br>            ans^=l;<br>        &#125;<br><br>        cout&lt;&lt;ans&lt;&lt;endl;<br>    &#125;<br><br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-built_in">work</span>();<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>寒假练题计划</category>
+      
+      <category>scp认证真题</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>cpp</tag>
+      
+      <tag>algorithm</tag>
+      
+      <tag>binary search</tag>
+      
+      <tag>csp</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>2025-01-22高精度整数运算</title>
     <link href="/2025/01/22/%E9%AB%98%E7%B2%BE%E5%BA%A6%E6%95%B4%E6%95%B0%E8%BF%90%E7%AE%97/"/>
     <url>/2025/01/22/%E9%AB%98%E7%B2%BE%E5%BA%A6%E6%95%B4%E6%95%B0%E8%BF%90%E7%AE%97/</url>
@@ -61,7 +127,7 @@
       
       <tag>ACwing</tag>
       
-      <tag>search</tag>
+      <tag>binary search</tag>
       
     </tags>
     
@@ -94,7 +160,7 @@
       
       <tag>ACwing</tag>
       
-      <tag>search</tag>
+      <tag>binary search</tag>
       
     </tags>
     
