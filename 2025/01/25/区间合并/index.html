@@ -19,21 +19,21 @@
   <meta name="author" content="666xz666">
   <meta name="keywords" content="">
   
-    <meta name="description" content="离散化主要内容 模板代码1234567891011121314vector&lt;int&gt; alls;&#x2F;&#x2F;存储所有待离散化的值sort(alls.begin(),alls.end());&#x2F;&#x2F;将所有值排序alls.erase(unique(alls.begin(),alls.end()),alls.end());&#x2F;&#x2F;去重&#x2F;&#x2F;二分求出x对应的离散化下标int find(int x)&#123;">
+    <meta name="description" content="区间合并主要内容快速地将一系列区间中有交集（包括端点相交）的区间合并成一个,返回处理后的区间列表。  代码模板123456789101112131415161718void merge(vector&lt;PII&gt;&amp; segs)&#123;    vector&lt;PII&gt; res;    sort(segs.begin(),segs.end());&#x2F;&#x2F;先按照左边界大小从小到">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2025-01-25离散化">
-<meta property="og:url" content="http://666xz666.github.io/2025/01/25/%E7%A6%BB%E6%95%A3%E5%8C%96/index.html">
+<meta property="og:title" content="2025-01-25区间合并">
+<meta property="og:url" content="http://666xz666.github.io/2025/01/25/%E5%8C%BA%E9%97%B4%E5%90%88%E5%B9%B6/index.html">
 <meta property="og:site_name" content="666xz666 的博客">
-<meta property="og:description" content="离散化主要内容 模板代码1234567891011121314vector&lt;int&gt; alls;&#x2F;&#x2F;存储所有待离散化的值sort(alls.begin(),alls.end());&#x2F;&#x2F;将所有值排序alls.erase(unique(alls.begin(),alls.end()),alls.end());&#x2F;&#x2F;去重&#x2F;&#x2F;二分求出x对应的离散化下标int find(int x)&#123;">
+<meta property="og:description" content="区间合并主要内容快速地将一系列区间中有交集（包括端点相交）的区间合并成一个,返回处理后的区间列表。  代码模板123456789101112131415161718void merge(vector&lt;PII&gt;&amp; segs)&#123;    vector&lt;PII&gt; res;    sort(segs.begin(),segs.end());&#x2F;&#x2F;先按照左边界大小从小到">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pic--oss.oss-cn-beijing.aliyuncs.com/img/7100.jpg_wh860.jpg">
-<meta property="article:published_time" content="2025-01-25T02:20:14.000Z">
-<meta property="article:modified_time" content="2025-01-25T05:34:07.567Z">
+<meta property="article:published_time" content="2025-01-25T08:34:46.000Z">
+<meta property="article:modified_time" content="2025-01-25T09:12:08.098Z">
 <meta property="article:author" content="666xz666">
 <meta property="article:tag" content="cpp">
 <meta property="article:tag" content="algorithm">
 <meta property="article:tag" content="ACwing">
-<meta property="article:tag" content="discretization">
+<meta property="article:tag" content="interval merging">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://pic--oss.oss-cn-beijing.aliyuncs.com/img/7100.jpg_wh860.jpg">
   
@@ -41,7 +41,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>2025-01-25离散化 - 666xz666 的博客</title>
+  <title>2025-01-25区间合并 - 666xz666 的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -211,7 +211,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="2025-01-25离散化"></span>
+            <span id="subtitle" data-typed-text="2025-01-25区间合并"></span>
           
         </div>
 
@@ -222,8 +222,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-01-25 10:20" pubdate>
-          2025年1月25日 上午
+        <time datetime="2025-01-25 16:34" pubdate>
+          2025年1月25日 下午
         </time>
       </span>
     
@@ -234,7 +234,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          350 字
+          342 字
         
       </span>
     
@@ -291,18 +291,17 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">2025-01-25离散化</h1>
+            <h1 id="seo-header">2025-01-25区间合并</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="离散化"><a href="#离散化" class="headerlink" title="离散化"></a>离散化</h1><h2 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h2><p><img src="https://pic--oss.oss-cn-beijing.aliyuncs.com/img/image-20250125123839103.png" srcset="/img/loading.gif" lazyload alt="image-20250125123839103"></p>
-<h2 id="模板代码"><a href="#模板代码" class="headerlink" title="模板代码"></a>模板代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp">vector&lt;<span class="hljs-type">int</span>&gt; alls;<span class="hljs-comment">//存储所有待离散化的值</span><br><span class="hljs-built_in">sort</span>(alls.<span class="hljs-built_in">begin</span>(),alls.<span class="hljs-built_in">end</span>());<span class="hljs-comment">//将所有值排序</span><br>alls.<span class="hljs-built_in">erase</span>(<span class="hljs-built_in">unique</span>(alls.<span class="hljs-built_in">begin</span>(),alls.<span class="hljs-built_in">end</span>()),alls.<span class="hljs-built_in">end</span>());<span class="hljs-comment">//去重</span><br><br><span class="hljs-comment">//二分求出x对应的离散化下标</span><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span></span>&#123;<br>    <span class="hljs-type">int</span> l=<span class="hljs-number">0</span>,r=alls.<span class="hljs-built_in">size</span>()<span class="hljs-number">-1</span>;<br>    <span class="hljs-keyword">while</span>(l&lt;r)&#123;<br>		<span class="hljs-type">int</span> mid=l+r&gt;&gt;<span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">if</span>(alls[mid]&gt;=x) r=mid;<br>        <span class="hljs-keyword">else</span> l=mid<span class="hljs-number">+1</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> l<span class="hljs-number">+1</span>;<span class="hljs-comment">//下标从1开始</span><br>&#125;<br></code></pre></td></tr></table></figure>
+                <h1 id="区间合并"><a href="#区间合并" class="headerlink" title="区间合并"></a>区间合并</h1><h2 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h2><p>快速地将一系列区间中有交集（包括端点相交）的区间合并成一个,返回处理后的区间列表。</p>
+<p><img src="https://pic--oss.oss-cn-beijing.aliyuncs.com/img/image-20250125163700640.png" srcset="/img/loading.gif" lazyload alt="image-20250125163700640"></p>
+<h2 id="代码模板"><a href="#代码模板" class="headerlink" title="代码模板"></a>代码模板</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">merge</span><span class="hljs-params">(vector&lt;PII&gt;&amp; segs)</span></span>&#123;<br>    vector&lt;PII&gt; res;<br><br>    <span class="hljs-built_in">sort</span>(segs.<span class="hljs-built_in">begin</span>(),segs.<span class="hljs-built_in">end</span>());<span class="hljs-comment">//先按照左边界大小从小到大排序</span><br><br>    <span class="hljs-type">int</span> st=<span class="hljs-number">-2e9</span>,ed=<span class="hljs-number">-2e9</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> seg:segs)&#123;<br>        <span class="hljs-keyword">if</span>(ed&lt;seg.first)&#123;<br>            <span class="hljs-keyword">if</span>(ed!=<span class="hljs-number">-2e9</span>) res.<span class="hljs-built_in">push_back</span>(&#123;st,ed&#125;);<br>            st=seg.first,ed=seg.second;<br>        &#125;<br>        <span class="hljs-keyword">else</span> ed=<span class="hljs-built_in">max</span>(ed,seg.second);<br>    &#125;<br><br>    <span class="hljs-keyword">if</span>(ed!=<span class="hljs-number">-2e9</span>) res.<span class="hljs-built_in">push_back</span>(&#123;st,ed&#125;);<span class="hljs-comment">//要记得把最后一段区间加到结果里</span><br><br>    segs=res;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-
-
-<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><h3 id="区间和"><a href="#区间和" class="headerlink" title="区间和"></a>区间和</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/2301_80072871/article/details/140408415?ops_request_misc=%7B%22request_id%22:%226eef23061a73e6a0c727b98dac6c809a%22,%22scm%22:%2220140713.130102334..%22%7D&request_id=6eef23061a73e6a0c727b98dac6c809a&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-140408415-null-null.142%5Ev101%5Epc_search_result_base2&utm_term=acwing%E5%8C%BA%E9%97%B4%E5%92%8C&spm=1018.2226.3001.4187">Acwing基础算法 802. 区间和_acwing 802. 区间和-CSDN博客</a></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// https://blog.csdn.net/2301_80072871/article/details/140408415</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-keyword">typedef</span> pair&lt;<span class="hljs-type">int</span>,<span class="hljs-type">int</span>&gt; PII;<br><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N=<span class="hljs-number">3e5</span><span class="hljs-number">+5</span>;<br><span class="hljs-type">int</span> a[N],sum[N];<br><span class="hljs-type">int</span> n,m;<br>vector&lt;PII&gt; add;<br>vector&lt;PII&gt; query;<br>vector&lt;<span class="hljs-type">int</span>&gt; alls;<br><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span></span>&#123;<br>    <span class="hljs-type">int</span> l=<span class="hljs-number">0</span>,r=alls.<span class="hljs-built_in">size</span>()<span class="hljs-number">-1</span>;<br>    <span class="hljs-keyword">while</span>(l&lt;r)&#123;<br>        <span class="hljs-type">int</span> mid=l+r&gt;&gt;<span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">if</span>(alls[mid]&gt;=x) r=mid;<span class="hljs-comment">//[l,mid]</span><br>        <span class="hljs-keyword">else</span> l=mid<span class="hljs-number">+1</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">return</span> l<span class="hljs-number">+1</span>;<span class="hljs-comment">//因为涉及前缀和，所以映射下标从1开始</span><br>&#125;<br><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">work</span><span class="hljs-params">()</span></span>&#123;<br>    cin&gt;&gt;n&gt;&gt;m;<br><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;<br>        <span class="hljs-type">int</span> x,c;<br>        cin&gt;&gt;x&gt;&gt;c;<br>        add.<span class="hljs-built_in">push_back</span>(&#123;x,c&#125;);<br>        alls.<span class="hljs-built_in">push_back</span>(x);<br>    &#125;<br><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;m;i++)&#123;<br>        <span class="hljs-type">int</span> l,r;<br>        cin&gt;&gt;l&gt;&gt;r;<br>        query.<span class="hljs-built_in">push_back</span>(&#123;l,r&#125;);<br>        alls.<span class="hljs-built_in">push_back</span>(l);<br>        alls.<span class="hljs-built_in">push_back</span>(r);<br>    &#125;<br><br>    <span class="hljs-comment">//排序，去重</span><br>    <span class="hljs-built_in">sort</span>(alls.<span class="hljs-built_in">begin</span>(),alls.<span class="hljs-built_in">end</span>());<br>    alls.<span class="hljs-built_in">erase</span>(<span class="hljs-built_in">unique</span>(alls.<span class="hljs-built_in">begin</span>(),alls.<span class="hljs-built_in">end</span>()),alls.<span class="hljs-built_in">end</span>());<br><br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> item:add) a[<span class="hljs-built_in">find</span>(item.first)]+=item.second;<br><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=alls.<span class="hljs-built_in">size</span>();i++) sum[i]=sum[i<span class="hljs-number">-1</span>]+a[i];<br><br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> item:query) cout&lt;&lt;sum[<span class="hljs-built_in">find</span>(item.second)]-sum[<span class="hljs-built_in">find</span>(item.first)<span class="hljs-number">-1</span>]&lt;&lt;endl;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-built_in">work</span>();<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_51547272/article/details/135909456?ops_request_misc=%7B%22request_id%22:%22796a2b1beae2c61fb9d297b2969bf42b%22,%22scm%22:%2220140713.130102334..%22%7D&request_id=796a2b1beae2c61fb9d297b2969bf42b&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-2-135909456-null-null.142%5Ev101%5Epc_search_result_base2&utm_term=acwing%E5%8C%BA%E9%97%B4%E5%90%88%E5%B9%B6&spm=1018.2226.3001.4187">Acwing区间合并_acwing 区间合并-CSDN博客</a></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// https://blog.csdn.net/m0_51547272/article/details/135909456</span><br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">比题目严格的测试样例</span><br><span class="hljs-comment">Input:</span><br><span class="hljs-comment">5</span><br><span class="hljs-comment">7 9</span><br><span class="hljs-comment">2 4</span><br><span class="hljs-comment">5 6</span><br><span class="hljs-comment">1 2</span><br><span class="hljs-comment">7 8</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">Output:</span><br><span class="hljs-comment">3</span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N=<span class="hljs-number">1e5</span><span class="hljs-number">+5</span>;<br><span class="hljs-keyword">typedef</span> pair&lt;<span class="hljs-type">int</span>,<span class="hljs-type">int</span>&gt; PII;<br>vector&lt;PII&gt; segs;<br><span class="hljs-type">int</span> n;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">merge</span><span class="hljs-params">(vector&lt;PII&gt;&amp; segs)</span></span>&#123;<br>    vector&lt;PII&gt; res;<br><br>    <span class="hljs-built_in">sort</span>(segs.<span class="hljs-built_in">begin</span>(),segs.<span class="hljs-built_in">end</span>());<span class="hljs-comment">//先按照左边界大小从小到大排序</span><br><br>    <span class="hljs-type">int</span> st=<span class="hljs-number">-2e9</span>,ed=<span class="hljs-number">-2e9</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> seg:segs)&#123;<br>        <span class="hljs-keyword">if</span>(ed&lt;seg.first)&#123;<br>            <span class="hljs-keyword">if</span>(ed!=<span class="hljs-number">-2e9</span>) res.<span class="hljs-built_in">push_back</span>(&#123;st,ed&#125;);<br>            st=seg.first,ed=seg.second;<br>        &#125;<br>        <span class="hljs-keyword">else</span> ed=<span class="hljs-built_in">max</span>(ed,seg.second);<br>    &#125;<br><br>    <span class="hljs-keyword">if</span>(ed!=<span class="hljs-number">-2e9</span>) res.<span class="hljs-built_in">push_back</span>(&#123;st,ed&#125;);<span class="hljs-comment">//要记得把最后一段区间加到结果里</span><br><br>    segs=res;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">work</span><span class="hljs-params">()</span></span>&#123;<br>    cin&gt;&gt;n;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;<br>        <span class="hljs-type">int</span> l,r;<br>        cin&gt;&gt;l&gt;&gt;r;<br>        segs.<span class="hljs-built_in">push_back</span>(&#123;l,r&#125;);<br>    &#125;<br><br>    <span class="hljs-built_in">merge</span>(segs);<br><br>    cout&lt;&lt;segs.<span class="hljs-built_in">size</span>()&lt;&lt;endl;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-built_in">work</span>();<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 
                 
@@ -350,7 +349,7 @@
       
         <a href="/tags/ACwing/" class="print-no-link">#ACwing</a>
       
-        <a href="/tags/discretization/" class="print-no-link">#discretization</a>
+        <a href="/tags/interval-merging/" class="print-no-link">#interval merging</a>
       
     </div>
   
@@ -362,8 +361,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>2025-01-25离散化</div>
-      <div>http://666xz666.github.io/2025/01/25/离散化/</div>
+      <div>2025-01-25区间合并</div>
+      <div>http://666xz666.github.io/2025/01/25/区间合并/</div>
     </div>
     <div class="license-meta">
       
@@ -407,18 +406,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/01/25/%E5%8C%BA%E9%97%B4%E5%90%88%E5%B9%B6/" title="2025-01-25区间合并">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">2025-01-25区间合并</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/01/25/%E4%BD%8D%E8%BF%90%E7%AE%97/" title="2025-01-25位运算">
-                        <span class="hidden-mobile">2025-01-25位运算</span>
+                      <a href="/2025/01/25/%E7%A6%BB%E6%95%A3%E5%8C%96/" title="2025-01-25离散化">
+                        <span class="hidden-mobile">2025-01-25离散化</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
