@@ -19,21 +19,21 @@
   <meta name="author" content="666xz666">
   <meta name="keywords" content="">
   
-    <meta name="description" content="浮点二分浮点二分比整数二分简单得多，因为无需判断边界条件，只要设置精度即可。  设置精度标准：一般题目要求保留x位的话，精度加上2没有大问题。  模板1234567891011const double eps &#x3D; 1e-9;double binary_search(double left, double right) &#123;    int l&#x3D;left, r&#x3D;right;    while">
+    <meta name="description" content="位运算主要内容low_bit返回的是一个整数的二进制形式最右边的“1”，比如对于(101011000)2 返回的是(1000)2 123int low_bit(int n)&#123;    return n&amp;-n;&#125;  例题low_bit二进制表示中1的个数 12345678910111213141516171819202122232425#include&lt;bits&#x2F;st">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2025-01-20浮点二分">
-<meta property="og:url" content="http://666xz666.github.io/2025/01/20/2025-1-20%E6%B5%AE%E7%82%B9%E4%BA%8C%E5%88%86/index.html">
+<meta property="og:title" content="2025-01-25位运算">
+<meta property="og:url" content="http://666xz666.github.io/2025/01/25/%E4%BD%8D%E8%BF%90%E7%AE%97/index.html">
 <meta property="og:site_name" content="666xz666 的博客">
-<meta property="og:description" content="浮点二分浮点二分比整数二分简单得多，因为无需判断边界条件，只要设置精度即可。  设置精度标准：一般题目要求保留x位的话，精度加上2没有大问题。  模板1234567891011const double eps &#x3D; 1e-9;double binary_search(double left, double right) &#123;    int l&#x3D;left, r&#x3D;right;    while">
+<meta property="og:description" content="位运算主要内容low_bit返回的是一个整数的二进制形式最右边的“1”，比如对于(101011000)2 返回的是(1000)2 123int low_bit(int n)&#123;    return n&amp;-n;&#125;  例题low_bit二进制表示中1的个数 12345678910111213141516171819202122232425#include&lt;bits&#x2F;st">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pic--oss.oss-cn-beijing.aliyuncs.com/img/7100.jpg_wh860.jpg">
-<meta property="article:published_time" content="2025-01-20T02:26:02.000Z">
-<meta property="article:modified_time" content="2025-01-25T02:38:14.008Z">
+<meta property="article:published_time" content="2025-01-25T01:53:09.000Z">
+<meta property="article:modified_time" content="2025-01-25T02:05:27.749Z">
 <meta property="article:author" content="666xz666">
 <meta property="article:tag" content="cpp">
 <meta property="article:tag" content="algorithm">
 <meta property="article:tag" content="ACwing">
-<meta property="article:tag" content="binary search">
+<meta property="article:tag" content="binary">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://pic--oss.oss-cn-beijing.aliyuncs.com/img/7100.jpg_wh860.jpg">
   
@@ -41,7 +41,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>2025-01-20浮点二分 - 666xz666 的博客</title>
+  <title>2025-01-25位运算 - 666xz666 的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -211,7 +211,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="2025-01-20浮点二分"></span>
+            <span id="subtitle" data-typed-text="2025-01-25位运算"></span>
           
         </div>
 
@@ -222,8 +222,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-01-20 10:26" pubdate>
-          2025年1月20日 上午
+        <time datetime="2025-01-25 09:53" pubdate>
+          2025年1月25日 上午
         </time>
       </span>
     
@@ -234,7 +234,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          185 字
+          129 字
         
       </span>
     
@@ -291,20 +291,17 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">2025-01-20浮点二分</h1>
+            <h1 id="seo-header">2025-01-25位运算</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="浮点二分"><a href="#浮点二分" class="headerlink" title="浮点二分"></a>浮点二分</h1><p>浮点二分比整数二分简单得多，因为无需判断边界条件，只要设置精度即可。</p>
-<ul>
-<li>设置精度标准：一般题目要求保留x位的话，精度加上2没有大问题。</li>
-</ul>
-<h1 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-type">const</span> <span class="hljs-type">double</span> eps = <span class="hljs-number">1e-9</span>;<br><br><span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">binary_search</span><span class="hljs-params">(<span class="hljs-type">double</span> left, <span class="hljs-type">double</span> right)</span> </span>&#123;<br>    <span class="hljs-type">int</span> l=left, r=right;<br>    <span class="hljs-keyword">while</span> (r-l &gt; eps) &#123;<br>        <span class="hljs-type">double</span> mid = (l+r)/<span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span>(<span class="hljs-built_in">check</span>(mid)) r = mid;<br>        <span class="hljs-keyword">else</span> l = mid;<br>    &#125;<br>    <span class="hljs-keyword">return</span> l;<br>&#125;<br></code></pre></td></tr></table></figure>
+                <h1 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h1><h2 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h2><h3 id="low-bit"><a href="#low-bit" class="headerlink" title="low_bit"></a>low_bit</h3><p>返回的是一个整数的二进制形式最右边的“1”，比如对于(101011000)<sub>2</sub></p>
+<p>返回的是(1000)<sub>2</sub></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">low_bit</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span></span>&#123;<br>    <span class="hljs-keyword">return</span> n&amp;-n;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p>#例题<br>求立方根</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-type">long</span> <span class="hljs-type">long</span> x;<br><span class="hljs-type">const</span> <span class="hljs-type">double</span> P=<span class="hljs-number">1e-2</span>;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">work</span><span class="hljs-params">()</span></span>&#123;<br>    cin&gt;&gt;x;<br>    <span class="hljs-type">double</span> l=<span class="hljs-number">0</span>,r=<span class="hljs-number">1e5</span><span class="hljs-number">+5</span>;<br>    <span class="hljs-keyword">while</span>(r-l&gt;P)&#123;<br>        <span class="hljs-type">double</span> mid=(r+l)/<span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">if</span>(mid*mid*mid&lt;=x) l=mid;<br>        <span class="hljs-keyword">else</span> r=mid;<br>    &#125;<br>    <br>    <span class="hljs-type">int</span> ans=r;<br>    cout&lt;&lt;<span class="hljs-string">&quot;l: &quot;</span>&lt;&lt;l&lt;&lt;endl;<br>    cout&lt;&lt;<span class="hljs-string">&quot;r: &quot;</span>&lt;&lt;r&lt;&lt;endl;<br>    cout&lt;&lt;ans&lt;&lt;endl;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-built_in">work</span>();<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-
+<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><h3 id="low-bit-1"><a href="#low-bit-1" class="headerlink" title="low_bit"></a>low_bit</h3><p>二进制表示中1的个数</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">low_bit</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span></span>&#123;<br>    <span class="hljs-comment">/*</span><br><span class="hljs-comment">    可以得到整数二进制形式的最右边的&#x27;1&#x27;</span><br><span class="hljs-comment">    比如(101101000)2</span><br><span class="hljs-comment">    得到(1000)2 也就是8</span><br><span class="hljs-comment">    */</span><br>    <span class="hljs-keyword">return</span> n&amp;-n;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">work</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-type">int</span> n;<br>    cin&gt;&gt;n;<br><br>    <span class="hljs-type">int</span> cnt=<span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">while</span>(n) cnt++,n-=<span class="hljs-built_in">low_bit</span>(n); <br>    cout&lt;&lt;cnt&lt;&lt;endl;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-built_in">work</span>();<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 
                 
@@ -352,7 +349,7 @@
       
         <a href="/tags/ACwing/" class="print-no-link">#ACwing</a>
       
-        <a href="/tags/binary-search/" class="print-no-link">#binary search</a>
+        <a href="/tags/binary/" class="print-no-link">#binary</a>
       
     </div>
   
@@ -364,8 +361,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>2025-01-20浮点二分</div>
-      <div>http://666xz666.github.io/2025/01/20/2025-1-20浮点二分/</div>
+      <div>2025-01-25位运算</div>
+      <div>http://666xz666.github.io/2025/01/25/位运算/</div>
     </div>
     <div class="license-meta">
       
@@ -377,7 +374,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年1月20日</div>
+          <div>2025年1月25日</div>
         </div>
       
       
@@ -409,9 +406,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/01/22/%E9%AB%98%E7%B2%BE%E5%BA%A6%E6%95%B4%E6%95%B0%E8%BF%90%E7%AE%97/" title="2025-01-22高精度整数运算">
+                      <a href="/2025/01/25/%E7%A6%BB%E6%95%A3%E5%8C%96/" title="离散化">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">2025-01-22高精度整数运算</span>
+                        <span class="hidden-mobile">离散化</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -419,8 +416,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/01/19/2025-1-19%E4%BA%8C%E5%88%86/" title="2025-01-19二分">
-                        <span class="hidden-mobile">2025-01-19二分</span>
+                      <a href="/2025/01/24/%E5%8F%8C%E6%8C%87%E9%92%88/" title="2025-01-24双指针">
+                        <span class="hidden-mobile">2025-01-24双指针</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
