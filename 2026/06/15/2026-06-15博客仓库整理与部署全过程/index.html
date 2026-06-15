@@ -1,0 +1,1008 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=dark>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/xz.jpg">
+  <link rel="icon" href="/img/xz.jpg">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="666xz666">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="博客仓库整理与部署全过程背景这次整理的目标不是单纯“把博客跑起来”，而是把整个仓库从一个能用但比较混乱的状态，整理成一个结构清晰、可本地调试、可安全部署、可继续维护的 Hexo 博客项目。 当前仓库地址： 666xz666&#x2F;source.666xz666.github.io 最终希望达到的效果有四点：  本地命令清晰，随时可以重新启动和生成 仓库结构干净，不保留无意义目录和历史残留 图片">
+<meta property="og:type" content="article">
+<meta property="og:title" content="博客仓库整理与部署全过程">
+<meta property="og:url" content="http://666xz666.github.io/2026/06/15/2026-06-15%E5%8D%9A%E5%AE%A2%E4%BB%93%E5%BA%93%E6%95%B4%E7%90%86%E4%B8%8E%E9%83%A8%E7%BD%B2%E5%85%A8%E8%BF%87%E7%A8%8B/index.html">
+<meta property="og:site_name" content="666xz666 的博客">
+<meta property="og:description" content="博客仓库整理与部署全过程背景这次整理的目标不是单纯“把博客跑起来”，而是把整个仓库从一个能用但比较混乱的状态，整理成一个结构清晰、可本地调试、可安全部署、可继续维护的 Hexo 博客项目。 当前仓库地址： 666xz666&#x2F;source.666xz666.github.io 最终希望达到的效果有四点：  本地命令清晰，随时可以重新启动和生成 仓库结构干净，不保留无意义目录和历史残留 图片">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://666xz666.github.io/images/posts/blog-repo-cleanup-cover.svg">
+<meta property="article:published_time" content="2026-06-15T04:00:00.000Z">
+<meta property="article:modified_time" content="2026-06-15T16:41:48.070Z">
+<meta property="article:author" content="666xz666">
+<meta property="article:tag" content="blog">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="Fluid">
+<meta property="article:tag" content="GitHub">
+<meta property="article:tag" content="deploy">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://666xz666.github.io/images/posts/blog-repo-cleanup-cover.svg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>博客仓库整理与部署全过程 - 666xz666 的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/scrollAnimation.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"666xz666.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>666xz666 的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="博客仓库整理与部署全过程"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-06-15 12:00" pubdate>
+          2026年6月15日 中午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          25 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">博客仓库整理与部署全过程</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="博客仓库整理与部署全过程"><a href="#博客仓库整理与部署全过程" class="headerlink" title="博客仓库整理与部署全过程"></a>博客仓库整理与部署全过程</h1><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>这次整理的目标不是单纯“把博客跑起来”，而是把整个仓库从一个能用但比较混乱的状态，整理成一个结构清晰、可本地调试、可安全部署、可继续维护的 Hexo 博客项目。</p>
+<p>当前仓库地址：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/666xz666/source.666xz666.github.io">666xz666&#x2F;source.666xz666.github.io</a></p>
+<p>最终希望达到的效果有四点：</p>
+<ul>
+<li>本地命令清晰，随时可以重新启动和生成</li>
+<li>仓库结构干净，不保留无意义目录和历史残留</li>
+<li>图片全部本地静态化，不依赖随时可能失效的外链</li>
+<li>部署过程安全，不把 token 直接写进仓库</li>
+</ul>
+<h2 id="一开始遇到的问题"><a href="#一开始遇到的问题" class="headerlink" title="一开始遇到的问题"></a>一开始遇到的问题</h2><p>最开始的问题并不是单点故障，而是一连串的小坑叠在一起：</p>
+<ul>
+<li>项目目录里残留了不少历史文件，不容易判断哪些还在使用</li>
+<li>多个配置文件同时存在，职责边界不清楚</li>
+<li><code>data/</code> 目录里有部署状态文件，但并不是博客运行必须内容</li>
+<li>主题目录和本地配置叠在一起，不容易判断哪些是自定义、哪些是主题原始文件</li>
+<li>图片既有外链，也有本地资源，组织方式不统一</li>
+<li>部署相关文件中残留了敏感 token</li>
+</ul>
+<p>如果不先把这些基础问题梳理清楚，后面无论是调试、写文章还是部署，都会反复踩坑。</p>
+<h2 id="先做仓库结构清理"><a href="#先做仓库结构清理" class="headerlink" title="先做仓库结构清理"></a>先做仓库结构清理</h2><p>第一步做的是“看清项目到底有哪些东西”。</p>
+<p>这一步主要梳理了：</p>
+<ul>
+<li><code>source/</code>：博客正文、页面和图片资源</li>
+<li><code>scaffolds/</code>：Hexo 创建文章和页面时使用的模板</li>
+<li><code>scripts/</code>：Hexo 自定义脚本</li>
+<li><code>themes/fluid/</code>：本地主题目录</li>
+<li><code>_config.yml</code>：站点主配置</li>
+<li><code>_config.fluid.yml</code>：主题覆盖配置</li>
+</ul>
+<p>在这一步里，顺带还处理了几个具体问题：</p>
+<ul>
+<li>明确 <code>scaffolds/</code> 不是垃圾目录，而是新建文章时的模板来源</li>
+<li>确认 <code>package-lock.json</code> 需要保留，不应该忽略</li>
+<li>清理不再需要的额外配置文件</li>
+<li>检查 <code>themes/fluid/</code> 是否确实被当前主题引用</li>
+</ul>
+<p>其中一个比较明确的结论是：有些目录看起来像“缓存”或者“临时产物”，但实际上和 Hexo 的正常工作流有关，不能乱删；反过来，有些文件确实只是历史遗留，就应该及时移除或归档。</p>
+<h2 id="处理-data-目录和无效文件"><a href="#处理-data-目录和无效文件" class="headerlink" title="处理 data 目录和无效文件"></a>处理 data 目录和无效文件</h2><p>这一步的重点是减少仓库噪音。</p>
+<p>之前 <code>data/</code> 目录中有部署状态数据库之类的文件，这类文件对当前博客发布并不是必须内容，而且容易让仓库显得脏乱。</p>
+<p>最终处理思路是：</p>
+<ul>
+<li>不把这类历史部署状态文件继续保留在仓库核心结构里</li>
+<li>能删除就删除，而不是一边保留一边继续维护 ignore 规则</li>
+</ul>
+<p>后面又进一步处理了几个看起来“很突兀”的资源：</p>
+<ul>
+<li><code>source/_posts/差分.assets/image-20250123191035683.png</code></li>
+<li><code>source/images/</code> 根目录下的两张微信图片</li>
+</ul>
+<p>这些文件都没有继续参与正文引用，于是统一归档到了：</p>
+<ul>
+<li><code>source/images/trash/差分/</code></li>
+<li><code>source/images/trash/wechat/</code></li>
+</ul>
+<p>这样做的好处是：</p>
+<ul>
+<li>主资源目录更清晰</li>
+<li>历史资源没有立刻彻底丢失</li>
+<li>后续如果确认永远不用，再统一删除即可</li>
+</ul>
+<h2 id="整理配置文件"><a href="#整理配置文件" class="headerlink" title="整理配置文件"></a>整理配置文件</h2><p>配置层面最开始最大的疑问，是为什么不同 yml 里都有 <code>deploy</code> 配置。</p>
+<p>后来梳理出来的结论是：</p>
+<ul>
+<li><code>_config.yml</code> 才是站点主配置，应该承担部署配置</li>
+<li><code>_config.fluid.yml</code> 是主题覆盖配置，不应该继续承担重复部署信息</li>
+</ul>
+<p>因此后续做了两件事：</p>
+<ol>
+<li>清理 <code>_config.fluid.yml</code> 中不该承担的部署配置</li>
+<li>把部署入口统一收敛到 <code>_config.yml</code></li>
+</ol>
+<p>最终主配置里的部署段大致是这个思路：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">deploy:</span><br>  <span class="hljs-attr">type:</span> <span class="hljs-string">git</span><br>  <span class="hljs-attr">repo:</span> <span class="hljs-string">https://github.com/666xz666/666xz666.github.io.git</span><br>  <span class="hljs-attr">token:</span> <span class="hljs-string">$GITHUB_TOKEN</span><br>  <span class="hljs-attr">branch:</span> <span class="hljs-string">main</span><br></code></pre></td></tr></table></figure>
+
+<p>也就是说，仓库中不再保存真实 token，而是运行时从环境变量读取。</p>
+<h2 id="本地命令链路梳理"><a href="#本地命令链路梳理" class="headerlink" title="本地命令链路梳理"></a>本地命令链路梳理</h2><p>在仓库整理过程中，也顺手把本地开发和部署链路梳理清楚了。</p>
+<p>当前本地全周期最常用命令如下：</p>
+<h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">npm install<br></code></pre></td></tr></table></figure>
+
+<h3 id="启动本地预览"><a href="#启动本地预览" class="headerlink" title="启动本地预览"></a>启动本地预览</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">hexo s<br></code></pre></td></tr></table></figure>
+
+<h3 id="清理生成缓存"><a href="#清理生成缓存" class="headerlink" title="清理生成缓存"></a>清理生成缓存</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">hexo clean<br></code></pre></td></tr></table></figure>
+
+<h3 id="重新生成静态页面"><a href="#重新生成静态页面" class="headerlink" title="重新生成静态页面"></a>重新生成静态页面</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">hexo g<br></code></pre></td></tr></table></figure>
+
+<h3 id="创建新文章"><a href="#创建新文章" class="headerlink" title="创建新文章"></a>创建新文章</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">hexo new <span class="hljs-string">&quot;文章标题&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="创建新页面"><a href="#创建新页面" class="headerlink" title="创建新页面"></a>创建新页面</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">hexo new page <span class="hljs-string">&quot;页面名&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="执行部署"><a href="#执行部署" class="headerlink" title="执行部署"></a>执行部署</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs powershell">npm run deploy<br></code></pre></td></tr></table></figure>
+
+<p>这里有一个细节：</p>
+<ul>
+<li>日常生成、预览已经统一用全局 <code>hexo</code></li>
+<li>但部署仍然保留在 <code>npm run deploy</code></li>
+</ul>
+<p>原因是部署脚本额外负责读取项目根目录下的 <code>.env</code>，把 <code>GITHUB_TOKEN</code> 注入当前进程，再调用 <code>hexo deploy</code>。这一层用 <code>npm script</code> 包起来更稳。</p>
+<h2 id="调试过程中解决的实际故障"><a href="#调试过程中解决的实际故障" class="headerlink" title="调试过程中解决的实际故障"></a>调试过程中解决的实际故障</h2><p>整理不是纯文件搬运，中间还修过实际运行错误。</p>
+<p>其中一个比较关键的问题是本地执行 <code>hexo server</code> 时，<code>marked</code> 渲染链报错，根因是 <code>callouts</code> 的处理逻辑被主题脚本和仓库自定义脚本重复接管了。</p>
+<p>最后的处理方式是：</p>
+<ul>
+<li>保留仓库自己的 <code>scripts/callouts.js</code></li>
+<li>去掉主题里重复的同类接管逻辑</li>
+</ul>
+<p>这样 Hexo 渲染链恢复正常，<code>hexo generate</code> 和本地预览都能跑通。</p>
+<h2 id="对照线上站点做调试"><a href="#对照线上站点做调试" class="headerlink" title="对照线上站点做调试"></a>对照线上站点做调试</h2><p>在本地端口预览正常之后，又对照线上站点逐项检查了页面表现。</p>
+<p>这一步的意义在于：</p>
+<ul>
+<li>验证本地生成内容是否与线上一致</li>
+<li>找出本地缺失的配置、资源或渲染差异</li>
+<li>为后面的图片静态化做准备</li>
+</ul>
+<p>很多博客项目的问题不是“根本跑不起来”，而是“跑起来了，但和线上版本不一致”。这一轮对照就是为了把这种隐性差异尽量提前消掉。</p>
+<h2 id="把外链图片全部改成静态资源"><a href="#把外链图片全部改成静态资源" class="headerlink" title="把外链图片全部改成静态资源"></a>把外链图片全部改成静态资源</h2><p>这部分是整个整理过程中最花时间的一步之一。</p>
+<p>一开始文章里有不少外链图片，尤其是原来挂在 OSS 上的资源：</p>
+<ul>
+<li><code>https://pic--oss.oss-cn-beijing.aliyuncs.com/...</code></li>
+</ul>
+<p>这类图床一旦失效，博客正文和封面就会同时出问题，所以最终统一改成了本地静态资源方案。</p>
+<p>最终采用的策略是：</p>
+<ul>
+<li>统一把文章相关图片放到 <code>source/images/posts/</code></li>
+<li>文章 front matter 中的 <code>cover</code> 和 <code>index_img</code> 都改成本地路径</li>
+<li>正文里的插图也尽量改为本地资源</li>
+</ul>
+<h2 id="处理-Bing-外链封面失败问题"><a href="#处理-Bing-外链封面失败问题" class="headerlink" title="处理 Bing 外链封面失败问题"></a>处理 Bing 外链封面失败问题</h2><p>中间还踩了一个很典型的坑：原本想把几张失效的 Bing 图片封面下载下来保存到本地，结果所谓的“图片文件”其实是 Bing 返回的 HTML 页面。</p>
+<p>也就是说，文件扩展名虽然是 <code>.jpg</code>，但内容根本不是图片。</p>
+<p>这会导致两类问题：</p>
+<ul>
+<li>浏览器显示失败</li>
+<li>Hexo 虽然能复制文件，但页面里实际引用的是错误资源</li>
+</ul>
+<p>最后的解决思路是不再继续依赖这类不稳定的外链抓取，而是直接为相关文章制作本地静态封面。</p>
+<p>后来给几篇文章换成了本地封面，例如：</p>
+<ul>
+<li><code>/images/posts/bfs-flood-fill-cover.svg</code></li>
+<li><code>/images/posts/bfs-multi-source-cover.svg</code></li>
+<li><code>/images/posts/mst-cover.svg</code></li>
+</ul>
+<p>这一步的核心不是“图片多精美”，而是“封面一定稳定、可控、可版本管理”。</p>
+<h2 id="重新整理图片目录"><a href="#重新整理图片目录" class="headerlink" title="重新整理图片目录"></a>重新整理图片目录</h2><p>随着图片静态化完成，目录组织也顺手统一了。</p>
+<p>最终约定如下：</p>
+<ul>
+<li>正常文章资源：<code>source/images/posts/</code></li>
+<li>暂时不用但保留的资源：<code>source/images/trash/</code></li>
+<li>不再推荐使用 <code>source/_posts/*.assets/</code></li>
+</ul>
+<p>这比“图到处散着放”要好很多，因为后面维护时能快速判断：</p>
+<ul>
+<li>哪些是正文现役资源</li>
+<li>哪些只是历史残留</li>
+<li>哪些可以继续清理</li>
+</ul>
+<h2 id="处理部署安全问题"><a href="#处理部署安全问题" class="headerlink" title="处理部署安全问题"></a>处理部署安全问题</h2><p>部署链路真正的高风险点，是 token 一度被写进了仓库文件里。</p>
+<p>具体来说，早期的 <code>deploy_config.json</code> 中残留了真实 GitHub PAT，结果在 <code>git push</code> 时被 GitHub Push Protection 拦截。</p>
+<p>报错本质上是：</p>
+<ul>
+<li>当前提交历史中包含明文 secret</li>
+<li>就算后面删掉文件，如果历史里还存在那次提交，也一样会被阻止推送</li>
+</ul>
+<p>这个问题最后是这样处理的：</p>
+<ol>
+<li>删除 <code>deploy_config.json</code></li>
+<li>把它加入 <code>.gitignore</code></li>
+<li>重建根提交，彻底移除含密钥的那次旧提交历史</li>
+</ol>
+<p>这个过程再次说明一个事实：</p>
+<ul>
+<li>只在工作区“删掉敏感文件”是不够的</li>
+<li>如果 secret 已经进了提交历史，就必须改写历史</li>
+</ul>
+<p>当然，更重要的一点是：泄露过的 token 必须立即废弃并重新生成，不能继续使用。</p>
+<h2 id="README-和文档补全"><a href="#README-和文档补全" class="headerlink" title="README 和文档补全"></a>README 和文档补全</h2><p>在清理和调试基本完成之后，又补了一轮项目文档。</p>
+<p>这部分主要包括：</p>
+<ul>
+<li>更新 <code>README.md</code></li>
+<li>把本地命令统一成当前实际使用的全局 <code>hexo</code> 方式</li>
+<li>说明 <code>.env</code> &#x2F; <code>.env.example</code> 的作用</li>
+<li>解释部署时为什么仍然保留 <code>npm run deploy</code></li>
+</ul>
+<p>这样做的好处是，后面重新打开这个仓库时，不需要再靠记忆猜命令。</p>
+<h2 id="给-AI-写作流程补规范"><a href="#给-AI-写作流程补规范" class="headerlink" title="给 AI 写作流程补规范"></a>给 AI 写作流程补规范</h2><p>后面又补了一份 <code>AI_README.md</code>，专门给 agent 工具使用。</p>
+<p>这份文件的目的很明确：</p>
+<ul>
+<li>约束 AI 写博客时的 front matter</li>
+<li>约束标题、分类、标签、图片路径</li>
+<li>规定不能把 token、外链失效图片之类的内容写进仓库</li>
+</ul>
+<p>后来又进一步补了一条重要规则：</p>
+<ul>
+<li>AI 不能直接把新文章写进 <code>source/_posts/</code></li>
+<li>必须先写进 <code>source/_drafts/</code></li>
+</ul>
+<p>同时在仓库里创建了：</p>
+<ul>
+<li><code>source/_drafts/.gitkeep</code></li>
+</ul>
+<p>这里的 <code>.gitkeep</code> 只是一个占位文件，用来让 Git 跟踪原本的空目录。</p>
+<h2 id="最终得到的仓库状态"><a href="#最终得到的仓库状态" class="headerlink" title="最终得到的仓库状态"></a>最终得到的仓库状态</h2><p>整理完成后，当前仓库已经基本具备下面这些特征：</p>
+<ul>
+<li>本地开发命令明确</li>
+<li>主题和站点配置职责清晰</li>
+<li>图片资源以本地静态文件为主</li>
+<li>历史垃圾文件得到归档或删除</li>
+<li>部署不再依赖仓库内明文 token</li>
+<li>AI 写作流程也有了明确规则</li>
+</ul>
+<p>换句话说，这个博客项目现在已经不是“勉强能跑”，而是进入了“可以长期维护”的状态。</p>
+<h2 id="这次整理里最重要的几个经验"><a href="#这次整理里最重要的几个经验" class="headerlink" title="这次整理里最重要的几个经验"></a>这次整理里最重要的几个经验</h2><h3 id="1-先梳理结构，再修故障"><a href="#1-先梳理结构，再修故障" class="headerlink" title="1. 先梳理结构，再修故障"></a>1. 先梳理结构，再修故障</h3><p>如果一上来就只盯着某个报错，很容易头痛医头、脚痛医脚。<br>先搞清楚目录、配置、资源、部署链路分别由谁负责，后面的修复会快很多。</p>
+<h3 id="2-外链图片迟早会变成维护债务"><a href="#2-外链图片迟早会变成维护债务" class="headerlink" title="2. 外链图片迟早会变成维护债务"></a>2. 外链图片迟早会变成维护债务</h3><p>只要博客想长期存活，重要图片就应该尽量本地化。<br>封面图尤其如此，因为一旦失效，首页和文章页会同时变丑。</p>
+<h3 id="3-secret-不能只“删文件”，必须看提交历史"><a href="#3-secret-不能只“删文件”，必须看提交历史" class="headerlink" title="3. secret 不能只“删文件”，必须看提交历史"></a>3. secret 不能只“删文件”，必须看提交历史</h3><p>如果 token 已经进过提交，真正要处理的是 Git 历史，而不是当前工作区。</p>
+<h3 id="4-文档和规范本身也是维护成本的一部分"><a href="#4-文档和规范本身也是维护成本的一部分" class="headerlink" title="4. 文档和规范本身也是维护成本的一部分"></a>4. 文档和规范本身也是维护成本的一部分</h3><p>把 README、AI 写作规范、草稿流程补齐之后，后面的维护成本会明显下降。</p>
+<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>这次整理看上去是在“修博客”，但本质上做的是一轮完整的工程化收敛：</p>
+<ul>
+<li>清目录</li>
+<li>清配置</li>
+<li>清资源</li>
+<li>清部署链路</li>
+<li>清安全隐患</li>
+<li>补文档</li>
+<li>补工作流</li>
+</ul>
+<p>如果后面继续写文章、换主题样式、补自动化部署，这一轮整理打下的基础会非常有价值。至少以后再回来看这个仓库，不会再有一种“能跑，但完全不想碰”的感觉。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="category-chain-item">博客搭建</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/blog/" class="print-no-link">#blog</a>
+      
+        <a href="/tags/Hexo/" class="print-no-link">#Hexo</a>
+      
+        <a href="/tags/Fluid/" class="print-no-link">#Fluid</a>
+      
+        <a href="/tags/GitHub/" class="print-no-link">#GitHub</a>
+      
+        <a href="/tags/deploy/" class="print-no-link">#deploy</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>博客仓库整理与部署全过程</div>
+      <div>http://666xz666.github.io/2026/06/15/2026-06-15博客仓库整理与部署全过程/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>666xz666</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年6月15日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/06/16/%E5%8D%9A%E5%AE%A2%E4%BB%93%E5%BA%93%E8%BF%91%E6%9C%9F%E6%95%B4%E7%90%86%E8%AE%B0%E5%BD%95/" title="博客仓库近期整理记录">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">博客仓库近期整理记录</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/03/24/DFS-%E8%81%94%E9%80%9A%E6%80%A7-%E5%9B%9E%E6%BA%AF%E6%B3%95/" title="[DFS]联通性_回溯法">
+                        <span class="hidden-mobile">[DFS]联通性_回溯法</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', '666xz666/commit-utterance');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <i class="iconfont icon-github-fill"></i> github: <a href="https://github.com/666xz666/666xz666" target="_blank" rel="nofollow noopener"><span>666xz666</span></a> <i class="iconfont icon-love"></i> powered by: <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  
+<script src="/js/scrollAnimation.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/bynotes/texiao/source/js/qipao.js"></script>
+<script src="/js/snow.js"></script>
+<script src="/js/cursor.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
