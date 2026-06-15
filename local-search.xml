@@ -439,8 +439,6 @@
       
       <tag>ACwing</tag>
       
-      <tag>DFS</tag>
-      
       <tag>MST</tag>
       
       <tag>Kruskal</tag>
@@ -448,6 +446,8 @@
       <tag>Prim</tag>
       
       <tag>Disjoint-set</tag>
+      
+      <tag>DFS</tag>
       
       <tag>LCA</tag>
       
@@ -529,13 +529,13 @@
       
       <tag>ACwing</tag>
       
-      <tag>BFS</tag>
-      
       <tag>Dijsktra</tag>
       
       <tag>SPFA</tag>
       
       <tag>Floyd</tag>
+      
+      <tag>BFS</tag>
       
     </tags>
     
@@ -572,13 +572,13 @@
       
       <tag>ACwing</tag>
       
-      <tag>BFS</tag>
-      
       <tag>Dijsktra</tag>
       
       <tag>SPFA</tag>
       
       <tag>Floyd</tag>
+      
+      <tag>BFS</tag>
       
     </tags>
     
@@ -1187,9 +1187,9 @@
     
     <tags>
       
-      <tag>test</tag>
-      
       <tag>blog</tag>
+      
+      <tag>test</tag>
       
     </tags>
     
